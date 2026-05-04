@@ -3,626 +3,361 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AgroSpatial Consulting | Integrated Farm Planning & Performance</title>
+  <title>Green Cultivars Solutions | Integrated Farm Planning &amp; Performance Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lato:wght@300;400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --green-deep:   #1a3a2a;
-      --green-mid:    #2d5a3d;
-      --green-light:  #4a7c5f;
-      --gold:         #c8922a;
-      --gold-light:   #e8b85a;
-      --cream:        #f5f0e8;
-      --cream-dark:   #ede5d0;
-      --charcoal:     #1c1c1c;
-      --sand:         #d4c4a0;
-      --white:        #ffffff;
+      --forest:       #16301f;
+      --forest-mid:   #1f4029;
+      --forest-light: #2e5c3a;
+      --gold:         #b8892a;
+      --gold-light:   #d4aa55;
+      --gold-pale:    #e8cc88;
+      --cream:        #f7f3ec;
+      --cream-dark:   #ede6d5;
+      --off-white:    #faf8f4;
+      --charcoal:     #1a1a1a;
+      --text-mid:     #3d3d3d;
+      --text-light:   #6b6b6b;
+      --border:       rgba(184,137,42,0.18);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
+      font-family: 'Lato', sans-serif;
+      background: var(--off-white);
       color: var(--charcoal);
       overflow-x: hidden;
     }
 
-    /* ── NAV ─────────────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(26, 58, 42, 0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid rgba(200,146,42,0.25);
-      transition: padding 0.3s;
-    }
-    .nav-logo {
-      display: flex; align-items: center; gap: 0.75rem;
-      text-decoration: none;
-    }
-    .nav-logo-mark {
-      width: 38px; height: 38px;
-      background: var(--gold);
-      clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem; color: var(--green-deep); font-weight: 700;
-      letter-spacing: -0.05em;
-    }
-    .nav-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem; font-weight: 600;
-      color: var(--cream); letter-spacing: 0.02em;
-      line-height: 1;
-    }
-    .nav-brand span { color: var(--gold-light); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a {
-      color: rgba(245,240,232,0.75);
-      text-decoration: none;
-      font-size: 0.82rem; font-weight: 400;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: var(--gold-light); }
-    .nav-cta {
-      background: var(--gold);
-      color: var(--green-deep) !important;
-      padding: 0.5rem 1.25rem;
-      border-radius: 2px;
-      font-weight: 500 !important;
-      transition: background 0.25s !important;
-    }
-    .nav-cta:hover { background: var(--gold-light) !important; color: var(--green-deep) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
-    .hamburger span { width: 24px; height: 2px; background: var(--cream); transition: 0.3s; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    section { padding: 7rem 2.5rem; }
 
-    /* ── HERO ─────────────────────────────────────────────── */
-    #hero {
-      min-height: 100vh;
-      background: var(--green-deep);
-      position: relative; overflow: hidden;
-      display: flex; align-items: center;
-      padding-top: 80px;
-    }
-    .hero-grid {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(200,146,42,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,146,42,0.07) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-    .hero-hexagons {
-      position: absolute; right: 0; top: 0; bottom: 0; width: 52%;
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0.12;
-    }
-    .hex-svg { width: 100%; height: 100%; }
-    .hero-gradient {
-      position: absolute; left: 0; top: 0; bottom: 0; width: 65%;
-      background: linear-gradient(90deg, var(--green-deep) 55%, transparent 100%);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto;
-      padding: 5rem 4rem;
-    }
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem; color: var(--gold);
-      letter-spacing: 0.15em; text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .hero-tag::before {
-      content: '';
-      width: 30px; height: 1px; background: var(--gold);
-    }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 700;
-      color: var(--cream);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      max-width: 680px;
-      margin-bottom: 1.75rem;
-    }
-    h1 em { color: var(--gold-light); font-style: italic; }
-    .hero-sub {
-      font-size: 1.05rem; color: rgba(245,240,232,0.7);
-      max-width: 520px; line-height: 1.75;
-      margin-bottom: 2.5rem;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold);
-      color: var(--green-deep);
-      padding: 0.85rem 2rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem; font-weight: 500;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.25s, transform 0.2s;
-      display: inline-block;
-    }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-outline {
-      border: 1px solid rgba(245,240,232,0.35);
-      color: var(--cream);
-      padding: 0.85rem 2rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.88rem; font-weight: 400;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: border-color 0.25s, background 0.25s;
-      display: inline-block;
-    }
-    .btn-outline:hover { border-color: var(--gold); background: rgba(200,146,42,0.1); }
-    .hero-stats {
-      margin-top: 4rem;
-      display: flex; gap: 3rem; flex-wrap: wrap;
-      border-top: 1px solid rgba(200,146,42,0.2);
-      padding-top: 2rem;
-    }
-    .stat-item {}
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem; font-weight: 700;
-      color: var(--gold-light);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 0.78rem; color: rgba(245,240,232,0.55);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      margin-top: 0.3rem;
-    }
-
-    /* ── SECTIONS SHARED ─────────────────────────────────── */
-    section { padding: 6rem 4rem; }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.68rem; color: var(--gold);
-      letter-spacing: 0.18em; text-transform: uppercase;
-      display: flex; align-items: center; gap: 0.6rem;
-      margin-bottom: 1rem;
-    }
-    .section-tag::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      font-weight: 700; line-height: 1.1;
-      letter-spacing: -0.01em;
-      color: var(--green-deep);
-    }
-    h2 em { font-style: italic; color: var(--green-light); }
-
-    /* ── PROBLEM ─────────────────────────────────────────── */
-    #problem { background: var(--cream-dark); }
-    .problem-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: start;
-      margin-top: 3.5rem;
-    }
-    .problem-text p {
-      font-size: 1.05rem; line-height: 1.85;
-      color: rgba(28,28,28,0.75);
-      margin-bottom: 1.2rem;
-    }
-    .problem-cards { display: flex; flex-direction: column; gap: 1rem; }
-    .prob-card {
-      background: var(--cream);
-      border-left: 3px solid var(--gold);
-      padding: 1.25rem 1.5rem;
-      border-radius: 0 4px 4px 0;
-    }
-    .prob-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--green-deep); margin-bottom: 0.4rem;
-    }
-    .prob-card p { font-size: 0.88rem; color: rgba(28,28,28,0.65); line-height: 1.6; }
-
-    /* ── SERVICES ─────────────────────────────────────────── */
-    #services { background: var(--green-deep); }
-    #services h2 { color: var(--cream); }
-    #services h2 em { color: var(--gold-light); }
-    #services .section-tag { color: var(--gold-light); }
-    #services .section-tag::before { background: var(--gold-light); }
-    .services-intro {
-      font-size: 1rem; color: rgba(245,240,232,0.65);
-      max-width: 540px; line-height: 1.8;
-      margin-top: 1rem;
-    }
-    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; gap: 2rem; flex-wrap: wrap; }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(200,146,42,0.15);
-    }
-    .service-card {
-      background: rgba(26,58,42,0.95);
-      padding: 2.5rem;
-      transition: background 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s;
-    }
-    .service-card:hover { background: rgba(45,90,61,0.98); }
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-icon {
-      width: 48px; height: 48px;
-      background: rgba(200,146,42,0.15);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.5rem;
-      font-size: 1.4rem;
-    }
-    .service-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem; font-weight: 600;
-      color: var(--cream); margin-bottom: 0.75rem;
-    }
-    .service-card p {
-      font-size: 0.88rem; color: rgba(245,240,232,0.6);
-      line-height: 1.7;
-    }
-    .service-tags {
-      display: flex; flex-wrap: wrap; gap: 0.4rem;
-      margin-top: 1.25rem;
-    }
-    .tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.62rem; color: var(--gold);
-      border: 1px solid rgba(200,146,42,0.3);
-      padding: 0.2rem 0.5rem;
-      border-radius: 2px;
-      letter-spacing: 0.05em;
-    }
-
-    /* ── APPROACH ─────────────────────────────────────────── */
-    #approach { background: var(--cream); }
-    .approach-grid {
-      display: grid; grid-template-columns: 1fr 1.2fr;
-      gap: 5rem; align-items: start;
-      margin-top: 3.5rem;
-    }
-    .approach-steps { display: flex; flex-direction: column; gap: 0; }
-    .step {
-      display: flex; gap: 1.5rem;
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--cream-dark);
-      cursor: pointer;
-      transition: padding-left 0.3s;
-    }
-    .step:first-child { padding-top: 0; }
-    .step:hover { padding-left: 0.5rem; }
-    .step-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem; color: var(--gold);
-      font-weight: 700; min-width: 28px;
-      padding-top: 0.2rem;
-    }
-    .step-body h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem; font-weight: 600;
-      color: var(--green-deep); margin-bottom: 0.4rem;
-    }
-    .step-body p { font-size: 0.88rem; color: rgba(28,28,28,0.65); line-height: 1.65; }
-    .approach-visual {
-      background: var(--green-deep);
-      border-radius: 4px;
-      padding: 2.5rem;
-      position: sticky; top: 100px;
-    }
-    .av-title {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.65rem; color: var(--gold);
-      letter-spacing: 0.15em; text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-    .av-diagram { position: relative; }
-    .av-circle {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: rgba(200,146,42,0.12);
-      border: 1px solid rgba(200,146,42,0.3);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; text-align: center;
-      margin: 0 auto 1.5rem;
-    }
-    .av-circle-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; color: var(--cream);
-      line-height: 1.2;
-    }
-    .av-circle-sub {
-      font-size: 0.65rem; color: rgba(245,240,232,0.5);
-      letter-spacing: 0.05em; margin-top: 0.3rem;
-    }
-    .av-connections {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem; margin-top: 1rem;
-    }
-    .av-node {
-      background: rgba(200,146,42,0.08);
-      border: 1px solid rgba(200,146,42,0.2);
-      border-radius: 4px;
-      padding: 1rem;
-      text-align: center;
-    }
-    .av-node-icon { font-size: 1.4rem; margin-bottom: 0.4rem; }
-    .av-node-label {
-      font-size: 0.75rem; color: rgba(245,240,232,0.75);
-      line-height: 1.3;
-    }
-    .av-outputs {
-      margin-top: 1.5rem;
-      border-top: 1px solid rgba(200,146,42,0.2);
-      padding-top: 1.5rem;
-    }
-    .av-output-title {
-      font-size: 0.68rem; color: var(--gold);
-      letter-spacing: 0.12em; text-transform: uppercase;
-      font-family: 'Space Mono', monospace;
-      margin-bottom: 0.75rem;
-    }
-    .av-output-list { list-style: none; }
-    .av-output-list li {
-      font-size: 0.82rem; color: rgba(245,240,232,0.65);
-      padding: 0.35rem 0;
-      display: flex; gap: 0.5rem; align-items: baseline;
-    }
-    .av-output-list li::before { content: '→'; color: var(--gold); font-size: 0.75rem; }
-
-    /* ── CLIENTS ─────────────────────────────────────────── */
-    #clients { background: var(--cream-dark); }
-    .clients-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem; margin-top: 3.5rem;
-    }
-    .client-card {
-      background: var(--cream);
-      border: 1px solid var(--cream-dark);
-      border-radius: 4px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .client-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(26,58,42,0.1);
-    }
-    .client-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .client-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem; font-weight: 600;
-      color: var(--green-deep); margin-bottom: 0.5rem;
-    }
-    .client-card p { font-size: 0.82rem; color: rgba(28,28,28,0.6); line-height: 1.55; }
-
-    /* ── PILOT ───────────────────────────────────────────── */
-    #pilot {
-      background: var(--green-mid);
-      position: relative; overflow: hidden;
-    }
-    .pilot-bg {
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(200,146,42,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,146,42,0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-    }
-    #pilot h2 { color: var(--cream); position: relative; z-index: 1; }
-    #pilot h2 em { color: var(--gold-light); }
-    #pilot .section-tag { color: var(--gold-light); position: relative; z-index: 1; }
-    #pilot .section-tag::before { background: var(--gold-light); }
-    .pilot-content { position: relative; z-index: 1; }
-    .pilot-flex {
-      display: flex; gap: 5rem; align-items: center;
-      margin-top: 3.5rem; flex-wrap: wrap;
-    }
-    .pilot-text { flex: 1; min-width: 280px; }
-    .pilot-text p { font-size: 1rem; color: rgba(245,240,232,0.75); line-height: 1.8; margin-bottom: 1rem; }
-    .pilot-metrics {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1rem; flex: 1; min-width: 280px;
-    }
-    .metric-box {
-      background: rgba(26,58,42,0.5);
-      border: 1px solid rgba(200,146,42,0.25);
-      border-radius: 4px;
-      padding: 1.5rem;
-    }
-    .metric-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem; font-weight: 700;
-      color: var(--gold-light); line-height: 1;
-    }
-    .metric-label {
-      font-size: 0.8rem; color: rgba(245,240,232,0.6);
-      margin-top: 0.4rem; line-height: 1.4;
-    }
-
-    /* ── TEAM ────────────────────────────────────────────── */
-    #team { background: var(--cream); }
-    .team-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 2rem; margin-top: 3.5rem;
-    }
-    .team-card {
-      background: var(--cream-dark);
-      border-radius: 4px;
-      padding: 2.5rem;
-      display: flex; gap: 2rem;
-      border: 1px solid transparent;
-      transition: border-color 0.3s;
-    }
-    .team-card:hover { border-color: var(--gold); }
-    .team-avatar {
-      width: 70px; height: 70px; min-width: 70px;
-      background: var(--green-deep);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem; color: var(--gold-light);
-      font-weight: 700;
-    }
-    .team-info h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--green-deep); margin-bottom: 0.2rem;
-    }
-    .team-role {
-      font-size: 0.78rem; color: var(--gold);
-      letter-spacing: 0.06em; text-transform: uppercase;
-      font-weight: 500; margin-bottom: 0.75rem;
-    }
-    .team-info p { font-size: 0.88rem; color: rgba(28,28,28,0.65); line-height: 1.65; }
-    .team-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
-
-    /* ── CONTACT ──────────────────────────────────────────── */
-    #contact { background: var(--green-deep); }
-    #contact h2 { color: var(--cream); }
-    #contact h2 em { color: var(--gold-light); }
-    #contact .section-tag { color: var(--gold-light); }
-    #contact .section-tag::before { background: var(--gold-light); }
-    .contact-grid {
-      display: grid; grid-template-columns: 1fr 1.4fr;
-      gap: 5rem; margin-top: 3.5rem; align-items: start;
-    }
-    .contact-info p {
-      font-size: 1rem; color: rgba(245,240,232,0.7);
-      line-height: 1.8; margin-bottom: 2rem;
-    }
-    .contact-detail {
-      display: flex; gap: 0.75rem; align-items: flex-start;
+    .overline {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
       margin-bottom: 1.1rem;
     }
-    .contact-detail-icon { font-size: 1rem; margin-top: 0.1rem; }
-    .contact-detail-text { font-size: 0.9rem; color: rgba(245,240,232,0.7); line-height: 1.5; }
-    .contact-detail-text strong { color: var(--cream); display: block; font-weight: 500; }
-    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label {
-      font-size: 0.72rem; color: rgba(245,240,232,0.5);
-      letter-spacing: 0.1em; text-transform: uppercase;
-      font-family: 'Space Mono', monospace;
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: var(--forest);
     }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(200,146,42,0.25);
-      border-radius: 2px;
-      color: var(--cream);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.9rem;
-      padding: 0.75rem 1rem;
-      outline: none;
-      transition: border-color 0.25s;
-      width: 100%;
+
+    h2 em { font-style: italic; color: var(--forest-light); }
+
+    .section-rule {
+      width: 40px; height: 2px;
+      background: var(--gold);
+      margin: 1.4rem 0 2rem;
     }
-    .form-group input::placeholder,
-    .form-group textarea::placeholder { color: rgba(245,240,232,0.3); }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--gold); }
-    .form-group select option { background: var(--green-deep); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(22, 48, 31, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184,137,42,0.2);
+    }
+
+    .nav-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 2.5rem;
+      transition: padding 0.3s;
+    }
+
+    .nav-logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1; }
+    .nav-logo-top { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.28em; color: var(--gold-light); text-transform: uppercase; }
+    .nav-logo-main { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--cream); }
+    .nav-logo-main span { color: var(--gold-light); }
+
+    .nav-links { display: flex; align-items: center; gap: 2.2rem; list-style: none; }
+    .nav-links a { font-family: 'Lato', sans-serif; font-size: 0.78rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(247,243,236,0.65); text-decoration: none; transition: color 0.25s; }
+    .nav-links a:hover { color: var(--gold-pale); }
+
+    .nav-btn { font-family: 'Cinzel', serif !important; font-size: 0.58rem !important; letter-spacing: 0.18em !important; color: var(--forest) !important; background: var(--gold); padding: 0.6rem 1.5rem; border-radius: 1px; transition: background 0.25s !important; }
+    .nav-btn:hover { background: var(--gold-light) !important; }
+
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--cream); display: block; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; background: var(--forest);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; padding-top: 80px;
+    }
+
+    .hero-texture {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 72% 50%, rgba(46,92,58,0.5) 0%, transparent 55%),
+        radial-gradient(circle at 18% 80%, rgba(184,137,42,0.07) 0%, transparent 40%);
+    }
+
+    .hero-lines { position: absolute; right: 0; top: 0; bottom: 0; width: 48%; opacity: 0.07; }
+    .hero-lines svg { width: 100%; height: 100%; }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1160px; margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem; align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cinzel', serif; font-size: 0.6rem;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); display: flex; align-items: center;
+      gap: 0.8rem; margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 800; color: var(--cream);
+      line-height: 1.08; margin-bottom: 1.8rem;
+    }
+    h1 em { font-style: italic; color: var(--gold-pale); }
+
+    .hero-body { font-size: 1rem; color: rgba(247,243,236,0.65); line-height: 1.9; max-width: 500px; margin-bottom: 2.8rem; font-weight: 300; }
+
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-gold {
+      font-family: 'Cinzel', serif; font-size: 0.62rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--forest); background: var(--gold);
+      padding: 0.95rem 2.2rem; border-radius: 1px;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: background 0.25s, transform 0.2s; display: inline-block;
+    }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-ghost {
+      font-family: 'Cinzel', serif; font-size: 0.62rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(247,243,236,0.7); background: transparent;
+      border: 1px solid rgba(247,243,236,0.25);
+      padding: 0.95rem 2.2rem; border-radius: 1px;
+      text-decoration: none; transition: border-color 0.25s, color 0.25s; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold-pale); }
+
+    .hero-right { display: flex; flex-direction: column; gap: 1px; }
+
+    .hero-stat-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(184,137,42,0.15);
+      padding: 1.6rem 2rem;
+      transition: background 0.3s;
+    }
+    .hero-stat-box:hover { background: rgba(255,255,255,0.07); }
+    .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 0.4rem; }
+    .hero-stat-label { font-size: 0.8rem; color: rgba(247,243,236,0.5); line-height: 1.5; font-weight: 300; }
+
+    /* ABOUT */
+    #about { background: var(--cream-dark); padding: 5rem 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .about-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 5rem; align-items: center; }
+    .about-right p { font-size: 1rem; color: var(--text-mid); line-height: 1.9; font-weight: 300; margin-bottom: 1.2rem; }
+    .about-right p:last-child { margin-bottom: 0; }
+
+    /* PROBLEM */
+    #problem { background: var(--off-white); }
+    .problem-inner { max-width: 1160px; margin: 0 auto; }
+    .problem-header { margin-bottom: 4rem; }
+    .problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+
+    .prob-card {
+      background: var(--cream); border: 1px solid var(--border);
+      border-top: 3px solid var(--gold); padding: 2.2rem 2rem;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .prob-card:hover { box-shadow: 0 8px 32px rgba(22,48,31,0.08); transform: translateY(-3px); }
+    .prob-num { font-family: 'Cinzel', serif; font-size: 0.62rem; color: var(--gold); letter-spacing: 0.18em; margin-bottom: 1rem; }
+    .prob-card h4 { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 600; color: var(--forest); margin-bottom: 0.75rem; }
+    .prob-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.8; font-weight: 300; }
+
+    /* SERVICES */
+    #services { background: var(--forest); }
+    #services h2 { color: var(--cream); }
+    #services h2 em { color: var(--gold-pale); }
+    #services .overline { color: var(--gold-light); }
+    #services .section-rule { background: var(--gold); }
+    .services-inner { max-width: 1160px; margin: 0 auto; }
+    .services-lead { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: end; margin-bottom: 4rem; }
+    .services-tagline { font-size: 0.95rem; color: rgba(247,243,236,0.6); line-height: 1.85; font-weight: 300; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(184,137,42,0.12); }
+
+    .svc-card {
+      background: var(--forest-mid); padding: 2.5rem 2rem;
+      position: relative; overflow: hidden; transition: background 0.3s;
+    }
+    .svc-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .svc-card:hover { background: var(--forest-light); }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-num { font-family: 'Cinzel', serif; font-size: 0.58rem; color: rgba(184,137,42,0.55); letter-spacing: 0.2em; margin-bottom: 1.2rem; }
+    .svc-icon { font-size: 1.6rem; margin-bottom: 0.9rem; }
+    .svc-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 0.75rem; line-height: 1.3; }
+    .svc-card p { font-size: 0.85rem; color: rgba(247,243,236,0.55); line-height: 1.8; font-weight: 300; }
+    .svc-tags { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .chip { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.08em; color: var(--gold); border: 1px solid rgba(184,137,42,0.28); padding: 0.22rem 0.55rem; }
+
+    /* APPROACH */
+    #approach { background: var(--cream); }
+    .approach-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.1fr; gap: 6rem; align-items: start; }
+
+    .step { display: grid; grid-template-columns: 36px 1fr; gap: 1.2rem; padding: 1.8rem 0; border-bottom: 1px solid var(--cream-dark); }
+    .step:first-child { padding-top: 0; }
+    .step:last-child { border-bottom: none; }
+    .step-num { font-family: 'Cinzel', serif; font-size: 0.58rem; color: var(--gold); letter-spacing: 0.1em; padding-top: 0.3rem; }
+    .step h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--forest); margin-bottom: 0.45rem; }
+    .step p { font-size: 0.87rem; color: var(--text-light); line-height: 1.8; font-weight: 300; }
+
+    .approach-panel { background: var(--forest); padding: 3rem; position: sticky; top: 110px; }
+    .panel-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.22em; color: var(--gold); text-transform: uppercase; margin-bottom: 2rem; }
+    .panel-centre { border: 1px solid rgba(184,137,42,0.25); border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; }
+    .panel-centre-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--cream); line-height: 1.3; }
+    .panel-centre-sub { font-size: 0.62rem; color: rgba(247,243,236,0.4); margin-top: 0.3rem; letter-spacing: 0.05em; }
+    .panel-nodes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+    .panel-node { background: rgba(255,255,255,0.04); border: 1px solid rgba(184,137,42,0.18); padding: 1rem; text-align: center; }
+    .panel-node-icon { font-size: 1.2rem; margin-bottom: 0.4rem; }
+    .panel-node-label { font-size: 0.73rem; color: rgba(247,243,236,0.6); line-height: 1.4; font-weight: 300; }
+    .panel-deliverables { margin-top: 2rem; padding-top: 1.75rem; border-top: 1px solid rgba(184,137,42,0.18); }
+    .panel-del-title { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.85rem; }
+    .panel-del-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .panel-del-list li { font-size: 0.82rem; color: rgba(247,243,236,0.6); display: flex; align-items: baseline; gap: 0.6rem; font-weight: 300; }
+    .panel-del-list li::before { content: '✦'; font-size: 0.42rem; color: var(--gold); flex-shrink: 0; }
+
+    /* CLIENTS */
+    #clients { background: var(--cream-dark); }
+    .clients-inner { max-width: 1160px; margin: 0 auto; }
+    .clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+
+    .client-card { background: var(--off-white); border: 1px solid var(--border); padding: 2.2rem 1.75rem; transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s; }
+    .client-card:hover { border-color: var(--gold); box-shadow: 0 10px 28px rgba(22,48,31,0.08); transform: translateY(-4px); }
+    .client-icon-wrap { width: 46px; height: 46px; background: rgba(22,48,31,0.06); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.2rem; }
+    .client-card h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--forest); margin-bottom: 0.6rem; }
+    .client-card p { font-size: 0.84rem; color: var(--text-light); line-height: 1.75; font-weight: 300; }
+
+    /* PILOT */
+    #pilot { background: var(--forest-mid); position: relative; overflow: hidden; }
+    .pilot-bg-pattern { position: absolute; inset: 0; background-image: linear-gradient(rgba(184,137,42,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(184,137,42,0.04) 1px, transparent 1px); background-size: 50px 50px; }
+    #pilot h2 { color: var(--cream); }
+    #pilot h2 em { color: var(--gold-pale); }
+    #pilot .overline { color: var(--gold-light); }
+    #pilot .section-rule { background: var(--gold); }
+    .pilot-inner { max-width: 1160px; margin: 0 auto; position: relative; z-index: 1; }
+    .pilot-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3.5rem; }
+    .pilot-text p { font-size: 1rem; color: rgba(247,243,236,0.7); line-height: 1.9; font-weight: 300; margin-bottom: 1.2rem; }
+    .pilot-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .metric-box { background: rgba(22,48,31,0.45); border: 1px solid rgba(184,137,42,0.2); padding: 1.75rem; }
+    .metric-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 0.5rem; }
+    .metric-label { font-size: 0.8rem; color: rgba(247,243,236,0.55); line-height: 1.5; font-weight: 300; }
+
+    /* TEAM */
+    #team { background: var(--off-white); }
+    .team-inner { max-width: 1160px; margin: 0 auto; }
+    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3.5rem; }
+
+    .team-card { background: var(--cream); border: 1px solid var(--border); overflow: hidden; transition: box-shadow 0.35s, transform 0.35s; }
+    .team-card:hover { box-shadow: 0 14px 40px rgba(22,48,31,0.1); transform: translateY(-4px); }
+    .team-card-top { background: var(--forest); padding: 2.5rem; display: flex; align-items: center; gap: 1.5rem; }
+    .team-avatar { width: 72px; height: 72px; min-width: 72px; border-radius: 50%; background: rgba(184,137,42,0.15); border: 2px solid rgba(184,137,42,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--gold-pale); }
+    .team-header h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--cream); margin-bottom: 0.25rem; }
+    .team-title { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.15em; color: var(--gold-light); text-transform: uppercase; }
+    .team-card-body { padding: 2rem 2.5rem; }
+    .team-card-body p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.85; font-weight: 300; }
+    .team-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.4rem; }
+    .chip-light { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.08em; color: var(--gold); border: 1px solid rgba(22,48,31,0.15); padding: 0.22rem 0.55rem; }
+
+    /* CONTACT */
+    #contact { background: var(--forest); }
+    #contact h2 { color: var(--cream); }
+    #contact h2 em { color: var(--gold-pale); }
+    #contact .overline { color: var(--gold-light); }
+    #contact .section-rule { background: var(--gold); }
+    .contact-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 6rem; align-items: start; }
+    .contact-info p { font-size: 0.95rem; color: rgba(247,243,236,0.65); line-height: 1.9; font-weight: 300; margin-top: 1rem; margin-bottom: 2.5rem; }
+    .contact-detail { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.4rem; }
+    .contact-detail-icon { width: 36px; height: 36px; min-width: 36px; background: rgba(184,137,42,0.12); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; }
+    .contact-detail-label { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.25rem; }
+    .contact-detail-value { font-size: 0.88rem; color: rgba(247,243,236,0.7); font-weight: 300; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-group label { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.2em; color: rgba(247,243,236,0.4); text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(184,137,42,0.2); color: var(--cream); font-family: 'Lato', sans-serif; font-size: 0.88rem; font-weight: 300; padding: 0.8rem 1rem; outline: none; transition: border-color 0.25s, background 0.25s; width: 100%; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(247,243,236,0.25); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(255,255,255,0.08); }
+    .form-group select option { background: var(--forest); color: var(--cream); }
     .form-group textarea { resize: vertical; min-height: 130px; }
 
-    /* ── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background: #111d16;
-      padding: 2.5rem 4rem;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-      border-top: 1px solid rgba(200,146,42,0.15);
-    }
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem; color: rgba(245,240,232,0.5);
-    }
+    #form-success { display: none; font-size: 0.82rem; color: var(--gold-light); text-align: center; margin-top: 0.5rem; letter-spacing: 0.04em; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: #0e1f13; border-top: 1px solid rgba(184,137,42,0.15); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: rgba(247,243,236,0.4); }
     .footer-brand span { color: var(--gold-light); }
-    .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.3); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a {
-      font-size: 0.78rem; color: rgba(245,240,232,0.4);
-      text-decoration: none; transition: color 0.2s;
-    }
+    .footer-copy { font-size: 0.75rem; color: rgba(247,243,236,0.25); font-weight: 300; }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; }
+    .footer-links a { font-size: 0.75rem; color: rgba(247,243,236,0.3); text-decoration: none; transition: color 0.2s; font-weight: 300; }
     .footer-links a:hover { color: var(--gold-light); }
 
-    /* ── ANIMATIONS ──────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     .fade-up { animation: fadeUp 0.75s ease both; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.25s; }
-    .delay-3 { animation-delay: 0.4s; }
-    .delay-4 { animation-delay: 0.55s; }
-    .delay-5 { animation-delay: 0.7s; }
+    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.25s; }
+    .d3 { animation-delay: 0.4s; } .d4 { animation-delay: 0.55s; }
 
-    @keyframes hexFloat {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(3deg); }
-    }
-
-    /* ── RESPONSIVE ──────────────────────────────────────── */
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
-      nav { padding: 1rem 2rem; }
-      section { padding: 4rem 2rem; }
-      footer { padding: 2rem; }
-      .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .approach-grid { grid-template-columns: 1fr; }
-      .approach-visual { position: static; }
-      .clients-grid { grid-template-columns: 1fr 1fr; }
-      .team-grid { grid-template-columns: 1fr; }
-      .contact-grid { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
+      section { padding: 5rem 2rem; }
+      .hero-inner { grid-template-columns: 1fr; padding: 4rem 2rem; }
+      .hero-right { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .services-lead { grid-template-columns: 1fr; gap: 1.5rem; }
       .services-grid { grid-template-columns: 1fr 1fr; }
+      .approach-inner { grid-template-columns: 1fr; }
+      .approach-panel { position: static; }
+      .clients-grid { grid-template-columns: 1fr 1fr; }
+      .pilot-layout { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
     }
+
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .hamburger { display: flex; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: fixed; top: 65px; left: 0; right: 0;
-        background: var(--green-deep);
-        padding: 1.5rem 2rem;
-        border-bottom: 1px solid rgba(200,146,42,0.2);
-        gap: 1.25rem;
-      }
-      section { padding: 3.5rem 1.5rem; }
-      footer { padding: 1.5rem; flex-direction: column; text-align: center; }
-      .hero-content { padding: 3rem 1.5rem; }
+      .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 65px; left: 0; right: 0; background: var(--forest); padding: 1.5rem 2rem; border-bottom: 1px solid rgba(184,137,42,0.2); gap: 1.25rem; }
+      h1 { font-size: 2.5rem; }
+      section { padding: 4rem 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
       .clients-grid { grid-template-columns: 1fr; }
-      .team-card { flex-direction: column; }
-      h1 { font-size: 2.8rem; }
-      .hero-stats { gap: 1.5rem; }
+      .hero-right { grid-template-columns: 1fr 1fr; }
+      .problem-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -630,105 +365,109 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">
-      <div class="nav-logo-mark">AS</div>
-      <div class="nav-brand">Agro<span>Spatial</span></div>
-    </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#problem">The Gap</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#pilot">Pilot</a></li>
-      <li><a href="#team">Team</a></li>
-      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+    <div class="nav-inner" id="navInner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-logo-top">Est. 2025 &nbsp;&middot;&nbsp; KwaZulu-Natal</span>
+        <span class="nav-logo-main">Green <span>Cultivars</span> Solutions</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#approach">Approach</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-grid"></div>
-    <div class="hero-hexagons">
-      <svg class="hex-svg" viewBox="0 0 600 600" fill="none">
-        <polygon points="300,60 520,180 520,420 300,540 80,420 80,180" stroke="#c8922a" stroke-width="1" fill="none"/>
-        <polygon points="300,120 470,210 470,390 300,480 130,390 130,210" stroke="#c8922a" stroke-width="0.5" fill="none"/>
-        <polygon points="300,180 420,240 420,360 300,420 180,360 180,240" stroke="#c8922a" stroke-width="0.5" fill="none"/>
-        <line x1="80" y1="180" x2="520" y2="420" stroke="#c8922a" stroke-width="0.4"/>
-        <line x1="80" y1="420" x2="520" y2="180" stroke="#c8922a" stroke-width="0.4"/>
-        <line x1="300" y1="60" x2="300" y2="540" stroke="#c8922a" stroke-width="0.4"/>
-        <circle cx="300" cy="300" r="4" fill="#c8922a"/>
-        <circle cx="80" cy="180" r="3" fill="#c8922a"/>
-        <circle cx="520" cy="180" r="3" fill="#c8922a"/>
-        <circle cx="80" cy="420" r="3" fill="#c8922a"/>
-        <circle cx="520" cy="420" r="3" fill="#c8922a"/>
-        <circle cx="300" cy="60" r="3" fill="#c8922a"/>
-        <circle cx="300" cy="540" r="3" fill="#c8922a"/>
+    <div class="hero-texture"></div>
+    <div class="hero-lines">
+      <svg viewBox="0 0 500 800" fill="none" preserveAspectRatio="xMidYMid slice">
+        <line x1="0" y1="0" x2="500" y2="800" stroke="#b8892a" stroke-width="0.5"/>
+        <line x1="100" y1="0" x2="500" y2="640" stroke="#b8892a" stroke-width="0.4"/>
+        <line x1="200" y1="0" x2="500" y2="480" stroke="#b8892a" stroke-width="0.3"/>
+        <line x1="500" y1="0" x2="0" y2="800" stroke="#b8892a" stroke-width="0.5"/>
+        <line x1="400" y1="0" x2="0" y2="640" stroke="#b8892a" stroke-width="0.4"/>
+        <circle cx="250" cy="400" r="180" stroke="#b8892a" stroke-width="0.4" fill="none"/>
+        <circle cx="250" cy="400" r="120" stroke="#b8892a" stroke-width="0.3" fill="none"/>
+        <circle cx="250" cy="400" r="60"  stroke="#b8892a" stroke-width="0.3" fill="none"/>
       </svg>
     </div>
-    <div class="hero-gradient"></div>
-    <div class="hero-content">
-      <div class="hero-tag fade-up">KwaZulu-Natal, South Africa</div>
-      <h1 class="fade-up delay-1">Where <em>Land Intelligence</em> Meets Farm Profitability</h1>
-      <p class="hero-sub fade-up delay-2">
-        We integrate geospatial analysis with financial management to help smallholder farmers plan smarter, allocate resources efficiently, and build profitable, sustainable enterprises.
-      </p>
-      <div class="hero-actions fade-up delay-3">
-        <a href="#contact" class="btn-primary">Work With Us</a>
-        <a href="#approach" class="btn-outline">How We Work</a>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow fade-up">Integrated Farm Planning &amp; Performance Management</div>
+        <h1 class="fade-up d1">Where <em>Land Intelligence</em> Meets Farm Profitability</h1>
+        <p class="hero-body fade-up d2">Green Cultivars Solutions integrates geospatial analysis with financial management to help smallholder farmers plan with precision, allocate resources efficiently, and build profitable, sustainable agricultural enterprises.</p>
+        <div class="hero-cta-row fade-up d3">
+          <a href="#contact" class="btn-gold">Work With Us</a>
+          <a href="#approach" class="btn-ghost">Our Approach</a>
+        </div>
       </div>
-      <div class="hero-stats fade-up delay-4">
-        <div class="stat-item">
-          <div class="stat-num">250K+</div>
-          <div class="stat-label">Smallholder Farmers in SA</div>
+      <div class="hero-right fade-up d4">
+        <div class="hero-stat-box">
+          <div class="hero-stat-num">250K+</div>
+          <div class="hero-stat-label">Smallholder farmers across South Africa, many without integrated planning support</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">10–20</div>
-          <div class="stat-label">Pilot Farmers (Phase 1)</div>
+        <div class="hero-stat-box">
+          <div class="hero-stat-num">10 to 20</div>
+          <div class="hero-stat-label">Pilot farmers selected for Phase 1 across KwaZulu-Natal</div>
         </div>
-        <div class="stat-item">
-          <div class="stat-num">2-in-1</div>
-          <div class="stat-label">Spatial + Financial Lens</div>
+        <div class="hero-stat-box">
+          <div class="hero-stat-num">2-in-1</div>
+          <div class="hero-stat-label">Spatial intelligence combined with financial performance management in one model</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- THE PROBLEM -->
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-left">
+        <span class="overline">Who We Are</span>
+        <h2>A Joint Venture Built on <em>Complementary Expertise</em></h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="about-right">
+        <p>Green Cultivars Solutions is a specialised joint venture that brings together agribusiness and financial management expertise alongside geospatial analysis capability. Together, we deliver what no single discipline can offer alone: a complete, integrated picture of a farm's spatial assets and its financial performance.</p>
+        <p>Our work addresses a persistent gap in smallholder support across South Africa. While NGOs, government institutions, and private organisations provide valuable assistance, that support is rarely integrated. We connect the dots between where a farmer works and how that translates into sustainable profit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
   <section id="problem">
-    <div class="container">
-      <div class="section-tag">The Challenge</div>
-      <h2>A Critical Gap in <em>Smallholder Support</em></h2>
+    <div class="problem-inner">
+      <div class="problem-header">
+        <span class="overline">The Challenge We Address</span>
+        <h2>A Persistent Gap in <em>Smallholder Support</em></h2>
+        <div class="section-rule"></div>
+      </div>
       <div class="problem-grid">
-        <div class="problem-text">
-          <p>
-            South Africa's 250 000 smallholder farmers are the backbone of rural livelihoods, yet they remain underserved by a system that supports them in isolation — technical advice here, financial training there — but never both together.
-          </p>
-          <p>
-            NGOs, government institutions, and private organisations provide support in fragments. The missing link is an integrated approach that connects <em>where</em> a farmer works and <em>how</em> that translates into profit or loss.
-          </p>
-          <p>
-            Without that connection, planning decisions suffer, resources are wasted, and farmers struggle to grow sustainable enterprises — despite access to land, labour, and markets.
-          </p>
+        <div class="prob-card reveal">
+          <div class="prob-num">Challenge 01</div>
+          <h4>No Structured Financial Systems</h4>
+          <p>Most smallholder farmers operate without access to farm-level financial tools. Enterprise budgets, cash flow plans, and cost structures that reveal true profitability remain out of reach for the majority.</p>
         </div>
-        <div class="problem-cards">
-          <div class="prob-card">
-            <h4>No Structured Financial Systems</h4>
-            <p>Most smallholder farmers lack access to farm-level financial tools — enterprise budgets, cash flow plans, or cost structures that help them understand profitability.</p>
-          </div>
-          <div class="prob-card">
-            <h4>Limited Farm-Level Data</h4>
-            <p>Decisions are made without reliable spatial or production data — leaving farmers unable to identify underperforming zones or optimise land use.</p>
-          </div>
-          <div class="prob-card">
-            <h4>Disconnected Planning & Finance</h4>
-            <p>Even when support exists, spatial analysis and financial management are delivered in isolation — creating plans that look good on paper but don't survive contact with the season.</p>
-          </div>
-          <div class="prob-card">
-            <h4>Poor Resource Allocation</h4>
-            <p>Without knowing which land units are productive and at what cost, farmers spread inputs too thin or invest where returns are low — eroding margins over time.</p>
-          </div>
+        <div class="prob-card reveal">
+          <div class="prob-num">Challenge 02</div>
+          <h4>Limited Farm-Level Data</h4>
+          <p>Decisions are made without reliable spatial or production data. Farmers cannot identify underperforming zones or make informed choices about where to invest their time, labour, and inputs for the best return.</p>
+        </div>
+        <div class="prob-card reveal">
+          <div class="prob-num">Challenge 03</div>
+          <h4>Disconnected Planning and Finance</h4>
+          <p>Even where support exists, spatial analysis and financial management are delivered in isolation. Plans look sound on paper but fail to account for the financial reality of each production zone on the farm.</p>
+        </div>
+        <div class="prob-card reveal">
+          <div class="prob-num">Challenge 04</div>
+          <h4>Poor Resource Allocation</h4>
+          <p>Without knowing which land units are productive and at what cost, farmers spread inputs too thin or invest where returns are lowest. Margins erode season after season and enterprise viability is undermined.</p>
         </div>
       </div>
     </div>
@@ -736,71 +475,78 @@
 
   <!-- SERVICES -->
   <section id="services">
-    <div class="container">
-      <div class="services-header">
+    <div class="services-inner">
+      <div class="services-lead">
         <div>
-          <div class="section-tag">What We Offer</div>
+          <span class="overline">What We Offer</span>
           <h2>An <em>Integrated</em> Suite of Services</h2>
+          <div class="section-rule"></div>
         </div>
-        <p class="services-intro">Combining geospatial precision with financial rigour — delivered as a single, practical programme for farmers and the organisations that support them.</p>
+        <p class="services-tagline">Every service we offer is designed to work in concert with the others. Geospatial precision anchors financial rigour, and both are delivered as a single, practical programme for farmers and the organisations that support them.</p>
       </div>
       <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon">🗺️</div>
-          <h3>Farm Assessment & Baseline</h3>
-          <p>We begin with a thorough baseline of each farming operation — identifying key constraints, opportunities, and the current state of land and enterprise management.</p>
-          <div class="service-tags">
-            <span class="tag">Farm profiling</span>
-            <span class="tag">Constraint analysis</span>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 01</div>
+          <div class="svc-icon">🗺️</div>
+          <h3>Farm Assessment &amp; Baseline</h3>
+          <p>We begin with a thorough baseline of each farming operation, identifying key constraints, opportunities, and the current state of land and enterprise management. This foundation shapes every decision that follows.</p>
+          <div class="svc-tags">
+            <span class="chip">Farm Profiling</span>
+            <span class="chip">Constraint Analysis</span>
           </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">📍</div>
-          <h3>Spatial Mapping & Land Analysis</h3>
-          <p>Using QGIS, we map farm boundaries, production zones, and land use patterns — revealing how land is actually being used versus how it could be used.</p>
-          <div class="service-tags">
-            <span class="tag">QGIS mapping</span>
-            <span class="tag">Zone identification</span>
-            <span class="tag">Infrastructure</span>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 02</div>
+          <div class="svc-icon">📍</div>
+          <h3>Spatial Mapping &amp; Land Analysis</h3>
+          <p>Using QGIS, we map farm boundaries, production zones, and land use patterns, producing a clear and accurate spatial picture of how land is currently being used versus how it could generate the greatest return.</p>
+          <div class="svc-tags">
+            <span class="chip">QGIS Mapping</span>
+            <span class="chip">Zone Identification</span>
+            <span class="chip">Infrastructure</span>
           </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">📊</div>
-          <h3>Financial Analysis & Budgeting</h3>
-          <p>We develop enterprise budgets, analyse cost structures, and build basic cash flow plans — tailored to each farmer's crop or livestock enterprise.</p>
-          <div class="service-tags">
-            <span class="tag">Enterprise budgets</span>
-            <span class="tag">Cash flow</span>
-            <span class="tag">Cost analysis</span>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 03</div>
+          <div class="svc-icon">📊</div>
+          <h3>Financial Analysis &amp; Budgeting</h3>
+          <p>We develop enterprise budgets, analyse cost structures, and build practical cash flow plans tailored to each farmer's specific crop or livestock enterprise. Numbers are made meaningful and directly actionable.</p>
+          <div class="svc-tags">
+            <span class="chip">Enterprise Budgets</span>
+            <span class="chip">Cash Flow</span>
+            <span class="chip">Cost Analysis</span>
           </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🌿</div>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 04</div>
+          <div class="svc-icon">🌿</div>
           <h3>Integrated Farm Planning</h3>
-          <p>We link land-use data to enterprise selection and production decisions — creating actionable farm plans that are financially viable and spatially grounded.</p>
-          <div class="service-tags">
-            <span class="tag">Land-to-enterprise links</span>
-            <span class="tag">Actionable plans</span>
+          <p>We link land use data to enterprise selection and align production decisions with financial viability. The output is a practical farm plan that is both spatially grounded and financially sound.</p>
+          <div class="svc-tags">
+            <span class="chip">Land to Enterprise</span>
+            <span class="chip">Actionable Plans</span>
           </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">📈</div>
-          <h3>Performance Tracking & Monitoring</h3>
-          <p>Simple, practical record-keeping tools and KPI dashboards — helping farmers and programme managers monitor costs, yields, and financial outcomes over time.</p>
-          <div class="service-tags">
-            <span class="tag">KPI tracking</span>
-            <span class="tag">Record-keeping</span>
-            <span class="tag">Reporting</span>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 05</div>
+          <div class="svc-icon">📈</div>
+          <h3>Performance Tracking &amp; Monitoring</h3>
+          <p>Practical record-keeping tools and key performance indicator dashboards help farmers and programme managers monitor costs, yields, and financial outcomes on an ongoing and structured basis.</p>
+          <div class="svc-tags">
+            <span class="chip">KPI Tracking</span>
+            <span class="chip">Record Keeping</span>
+            <span class="chip">Reporting</span>
           </div>
         </div>
-        <div class="service-card">
-          <div class="service-icon">🤝</div>
-          <h3>Programme & Partnership Support</h3>
-          <p>We work with NGOs, government, and corporates to embed this integrated approach into existing programmes — making it scalable, reportable, and impact-measurable.</p>
-          <div class="service-tags">
-            <span class="tag">NGO integration</span>
-            <span class="tag">Scalable model</span>
-            <span class="tag">M&E</span>
+        <div class="svc-card reveal">
+          <div class="svc-num">Service 06</div>
+          <div class="svc-icon">🤝</div>
+          <h3>Programme &amp; Partnership Support</h3>
+          <p>We work with NGOs, government departments, and corporates to embed this integrated approach into existing programmes, making it scalable, reportable, and designed to demonstrate measurable impact.</p>
+          <div class="svc-tags">
+            <span class="chip">NGO Integration</span>
+            <span class="chip">Scalable Model</span>
+            <span class="chip">M&amp;E</span>
           </div>
         </div>
       </div>
@@ -809,121 +555,82 @@
 
   <!-- APPROACH -->
   <section id="approach">
-    <div class="container">
-      <div class="approach-grid">
+    <div class="approach-inner">
+      <div>
+        <span class="overline">How We Work</span>
+        <h2>A Practical, <em>Step-by-Step</em> Methodology</h2>
+        <div class="section-rule"></div>
         <div>
-          <div class="section-tag">How We Work</div>
-          <h2>A Practical, <em>Step-by-Step</em> Methodology</h2>
-          <div class="approach-steps" style="margin-top: 2.5rem;">
-            <div class="step">
-              <div class="step-num">01</div>
-              <div class="step-body">
-                <h4>Engage & Assess</h4>
-                <p>We begin with each farmer — understanding their land, enterprise mix, challenges, and goals. This baseline shapes everything that follows.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">02</div>
-              <div class="step-body">
-                <h4>Map the Farm</h4>
-                <p>Using QGIS, we produce accurate farm maps — boundaries, production zones, infrastructure, and land utilisation — giving farmers a clear picture of their spatial assets.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">03</div>
-              <div class="step-body">
-                <h4>Build the Numbers</h4>
-                <p>Enterprise budgets, cost structures, and cash flow projections are developed — creating a financial baseline that connects to land and production decisions.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">04</div>
-              <div class="step-body">
-                <h4>Integrate & Plan</h4>
-                <p>We bring spatial and financial data together into a practical farm business plan — aligning land use with the enterprises that make financial sense.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">05</div>
-              <div class="step-body">
-                <h4>Monitor & Improve</h4>
-                <p>Simple reporting tools and regular check-ins ensure farmers stay on track — and that programme partners can demonstrate measurable impact.</p>
-              </div>
+          <div class="step reveal">
+            <div class="step-num">01</div>
+            <div>
+              <h4>Engage &amp; Assess</h4>
+              <p>We begin with each farmer individually, understanding their land, enterprise mix, challenges, and goals. This baseline assessment forms the foundation for everything that follows in the programme.</p>
             </div>
           </div>
-        </div>
-        <div class="approach-visual">
-          <div class="av-title">// Integrated Model Framework</div>
-          <div class="av-circle">
-            <div class="av-circle-label">Integrated<br/>Farm Plan</div>
-            <div class="av-circle-sub">The Output</div>
-          </div>
-          <div class="av-connections">
-            <div class="av-node">
-              <div class="av-node-icon">🛰️</div>
-              <div class="av-node-label">Geospatial<br/>Analysis (QGIS)</div>
-            </div>
-            <div class="av-node">
-              <div class="av-node-icon">💰</div>
-              <div class="av-node-label">Financial<br/>Management</div>
-            </div>
-            <div class="av-node">
-              <div class="av-node-icon">🌾</div>
-              <div class="av-node-label">Agribusiness<br/>Advisory</div>
-            </div>
-            <div class="av-node">
-              <div class="av-node-icon">📋</div>
-              <div class="av-node-label">Performance<br/>Monitoring</div>
+          <div class="step reveal">
+            <div class="step-num">02</div>
+            <div>
+              <h4>Map the Farm</h4>
+              <p>Using QGIS, we produce accurate farm maps covering boundaries, production zones, infrastructure, and current land utilisation, giving farmers a clear and reliable spatial picture of their assets.</p>
             </div>
           </div>
-          <div class="av-outputs">
-            <div class="av-output-title">// Deliverables per Farmer</div>
-            <ul class="av-output-list">
-              <li>Farm map (land use & production zones)</li>
-              <li>Enterprise budget (crop / livestock)</li>
-              <li>Farm business plan</li>
-              <li>Profitability recommendations</li>
-              <li>Performance tracking templates</li>
-            </ul>
+          <div class="step reveal">
+            <div class="step-num">03</div>
+            <div>
+              <h4>Build the Numbers</h4>
+              <p>Enterprise budgets, cost structures, and cash flow projections are developed for each farmer, creating a financial baseline that is directly connected to their land and production decisions.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">04</div>
+            <div>
+              <h4>Integrate &amp; Plan</h4>
+              <p>Spatial and financial data are brought together into a practical farm business plan that aligns land use with the enterprises that are most financially viable for that specific farm context.</p>
+            </div>
+          </div>
+          <div class="step reveal">
+            <div class="step-num">05</div>
+            <div>
+              <h4>Monitor &amp; Improve</h4>
+              <p>Reporting tools and regular check-ins keep farmers on track and enable programme partners to demonstrate measurable, evidence-based impact to their stakeholders and funders.</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- PILOT -->
-  <section id="pilot">
-    <div class="pilot-bg"></div>
-    <div class="container pilot-content">
-      <div class="section-tag">Phase 1</div>
-      <h2>The <em>Pilot Programme</em></h2>
-      <div class="pilot-flex">
-        <div class="pilot-text">
-          <p>
-            Our first phase focuses on a carefully selected group of 10 to 20 smallholder farmers across KwaZulu-Natal. This pilot is designed to test, refine, and prove the integrated model before scaling it through programme partnerships.
-          </p>
-          <p>
-            Every element of the pilot — the farm assessments, spatial mapping, financial analysis, and performance tracking — is designed to be practical, replicable, and scalable. The model that emerges will be available to NGOs, commodity organisations, corporates, and government bodies looking to support smallholders at scale.
-          </p>
-          <a href="#contact" class="btn-primary" style="margin-top: 1rem; display: inline-block;">Partner on the Pilot</a>
+      <div class="approach-panel reveal">
+        <div class="panel-label">Integrated Model Framework</div>
+        <div class="panel-centre">
+          <div class="panel-centre-title">Integrated<br/>Farm Plan</div>
+          <div class="panel-centre-sub">The Unified Output</div>
         </div>
-        <div class="pilot-metrics">
-          <div class="metric-box">
-            <div class="metric-num">10–20</div>
-            <div class="metric-label">Pilot farmers selected for Phase 1</div>
+        <div class="panel-nodes">
+          <div class="panel-node">
+            <div class="panel-node-icon">🛰️</div>
+            <div class="panel-node-label">Geospatial Analysis (QGIS)</div>
           </div>
-          <div class="metric-box">
-            <div class="metric-num">5</div>
-            <div class="metric-label">Core programme components delivered</div>
+          <div class="panel-node">
+            <div class="panel-node-icon">💰</div>
+            <div class="panel-node-label">Financial Management</div>
           </div>
-          <div class="metric-box">
-            <div class="metric-num">KZN</div>
-            <div class="metric-label">Primary focus province</div>
+          <div class="panel-node">
+            <div class="panel-node-icon">🌾</div>
+            <div class="panel-node-label">Agribusiness Advisory</div>
           </div>
-          <div class="metric-box">
-            <div class="metric-num">∞</div>
-            <div class="metric-label">Scalable to national programmes</div>
+          <div class="panel-node">
+            <div class="panel-node-icon">📋</div>
+            <div class="panel-node-label">Performance Monitoring</div>
           </div>
+        </div>
+        <div class="panel-deliverables">
+          <div class="panel-del-title">Deliverables Per Farmer</div>
+          <ul class="panel-del-list">
+            <li>Farm map covering land use and production zones</li>
+            <li>Enterprise budget tailored to crop or livestock</li>
+            <li>Practical farm business plan</li>
+            <li>Profitability improvement recommendations</li>
+            <li>Performance tracking and reporting templates</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -931,29 +638,65 @@
 
   <!-- CLIENTS -->
   <section id="clients">
-    <div class="container">
-      <div class="section-tag">Who We Serve</div>
-      <h2>Our <em>Clients & Partners</em></h2>
+    <div class="clients-inner">
+      <span class="overline">Who We Serve</span>
+      <h2>Our Clients <em>&amp; Partners</em></h2>
+      <div class="section-rule"></div>
       <div class="clients-grid">
-        <div class="client-card">
-          <div class="client-icon">🏢</div>
+        <div class="client-card reveal">
+          <div class="client-icon-wrap">🏢</div>
           <h4>NGOs</h4>
-          <p>Development organisations seeking an evidence-based, scalable framework to embed in their farmer support programmes.</p>
+          <p>Development organisations seeking an evidence-based, scalable framework to embed within their existing farmer support and development programmes.</p>
         </div>
-        <div class="client-card">
-          <div class="client-icon">🌽</div>
+        <div class="client-card reveal">
+          <div class="client-icon-wrap">🌽</div>
           <h4>Commodity Organisations</h4>
-          <p>Industry bodies wanting to strengthen their smallholder farmer bases with planning and financial management tools.</p>
+          <p>Industry bodies wanting to strengthen their smallholder farmer bases with practical planning tools and structured financial management capability.</p>
         </div>
-        <div class="client-card">
-          <div class="client-icon">🏭</div>
+        <div class="client-card reveal">
+          <div class="client-icon-wrap">🏭</div>
           <h4>Corporates</h4>
-          <p>Agribusinesses and enterprises with supplier development, ESG, or transformation mandates in rural agricultural communities.</p>
+          <p>Agribusinesses and enterprises with supplier development, enterprise and supplier development, or agricultural transformation mandates to fulfil.</p>
         </div>
-        <div class="client-card">
-          <div class="client-icon">🏛️</div>
+        <div class="client-card reveal">
+          <div class="client-icon-wrap">🏛️</div>
           <h4>Government</h4>
-          <p>Provincial and national departments seeking scalable, measurable support models for smallholder and land reform beneficiaries.</p>
+          <p>Provincial and national departments seeking scalable, measurable support models for smallholder farmers and land reform beneficiaries.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILOT -->
+  <section id="pilot">
+    <div class="pilot-bg-pattern"></div>
+    <div class="pilot-inner">
+      <span class="overline">Phase 1 Programme</span>
+      <h2>The <em>Pilot Initiative</em></h2>
+      <div class="section-rule"></div>
+      <div class="pilot-layout">
+        <div class="pilot-text">
+          <p>Our first phase focuses on a carefully selected group of 10 to 20 smallholder farmers across KwaZulu-Natal. This pilot is designed to test, refine, and prove the integrated model in a real agricultural context before scaling it through programme partnerships.</p>
+          <p>Every element of the pilot is practical, replicable, and scalable. The farm assessments, spatial mapping, financial analysis, and performance tracking all follow a methodology designed to be adopted by NGOs, commodity organisations, corporates, and government bodies looking to support smallholders at a meaningful scale.</p>
+          <a href="#contact" class="btn-gold" style="margin-top:1.2rem;display:inline-block;">Partner on the Pilot</a>
+        </div>
+        <div class="pilot-metrics">
+          <div class="metric-box reveal">
+            <div class="metric-num">10 to 20</div>
+            <div class="metric-label">Pilot farmers selected for Phase 1</div>
+          </div>
+          <div class="metric-box reveal">
+            <div class="metric-num">5</div>
+            <div class="metric-label">Core programme components delivered per farmer</div>
+          </div>
+          <div class="metric-box reveal">
+            <div class="metric-num">KZN</div>
+            <div class="metric-label">Primary focus province for Phase 1</div>
+          </div>
+          <div class="metric-box reveal">
+            <div class="metric-num">National</div>
+            <div class="metric-label">Scale of ambition beyond the pilot phase</div>
+          </div>
         </div>
       </div>
     </div>
@@ -961,35 +704,44 @@
 
   <!-- TEAM -->
   <section id="team">
-    <div class="container">
-      <div class="section-tag">The Joint Venture</div>
-      <h2>Two Disciplines. <em>One Approach.</em></h2>
-      <div class="team-grid" style="margin-top: 3.5rem;">
-        <div class="team-card">
-          <div class="team-avatar">AF</div>
-          <div class="team-info">
-            <h3>Agribusiness & Financial Lead</h3>
-            <div class="team-role">Financial & Enterprise Management</div>
-            <p>Brings deep expertise in agribusiness development, enterprise budgeting, and financial management — translating farm operations into clear, actionable business plans that improve profitability and sustainability.</p>
-            <div class="team-skills">
-              <span class="tag">Client Engagement</span>
-              <span class="tag">Enterprise Budgeting</span>
-              <span class="tag">Farm Business Plans</span>
-              <span class="tag">Financial Analysis</span>
+    <div class="team-inner">
+      <span class="overline">The Joint Venture</span>
+      <h2>Two Disciplines. <em>One Vision.</em></h2>
+      <div class="section-rule"></div>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-card-top">
+            <div class="team-avatar">ZM</div>
+            <div class="team-header">
+              <h3>Miss Zamahlubi Molefe</h3>
+              <div class="team-title">Co-Founder &nbsp;&middot;&nbsp; Agribusiness &amp; Financial Lead</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <p>Miss Molefe brings deep expertise in agribusiness development, enterprise budgeting, and financial management. She translates farm operations into clear, actionable business plans that improve profitability and long-term sustainability for smallholder farmers and the organisations that support them. She leads all client engagement, financial analysis, and the development of practical farm business recommendations.</p>
+            <div class="team-chips">
+              <span class="chip-light">Client Engagement</span>
+              <span class="chip-light">Enterprise Budgeting</span>
+              <span class="chip-light">Farm Business Plans</span>
+              <span class="chip-light">Financial Analysis</span>
             </div>
           </div>
         </div>
-        <div class="team-card">
-          <div class="team-avatar">GS</div>
-          <div class="team-info">
-            <h3>Geospatial Lead</h3>
-            <div class="team-role">QGIS Mapping & Spatial Analysis</div>
-            <p>Specialises in QGIS-based farm mapping, land use analysis, and spatial data visualisation — providing the spatial intelligence layer that anchors every enterprise and planning decision in real geography.</p>
-            <div class="team-skills">
-              <span class="tag">QGIS Mapping</span>
-              <span class="tag">Land Use Analysis</span>
-              <span class="tag">Farm Boundary Mapping</span>
-              <span class="tag">Spatial Visualisation</span>
+        <div class="team-card reveal">
+          <div class="team-card-top">
+            <div class="team-avatar">NM</div>
+            <div class="team-header">
+              <h3>Mr Ntando Makhathini</h3>
+              <div class="team-title">Co-Founder &nbsp;&middot;&nbsp; Geospatial Lead</div>
+            </div>
+          </div>
+          <div class="team-card-body">
+            <p>Mr Makhathini specialises in QGIS-based farm mapping, land use analysis, and spatial data visualisation. He provides the spatial intelligence layer that grounds every enterprise selection and planning decision in the actual geography of the farm, turning landscape data into strategic insight that farmers and programme managers can act on with confidence.</p>
+            <div class="team-chips">
+              <span class="chip-light">QGIS Mapping</span>
+              <span class="chip-light">Land Use Analysis</span>
+              <span class="chip-light">Farm Boundary Mapping</span>
+              <span class="chip-light">Spatial Visualisation</span>
             </div>
           </div>
         </div>
@@ -999,132 +751,110 @@
 
   <!-- CONTACT -->
   <section id="contact">
-    <div class="container">
-      <div class="section-tag">Get In Touch</div>
-      <h2>Ready to <em>Work Together?</em></h2>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <p>Whether you represent an NGO, commodity body, government department, or corporate looking to support smallholder farmers — we'd love to explore how our integrated approach can serve your programme objectives.</p>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📍</div>
-            <div class="contact-detail-text">
-              <strong>Based in KwaZulu-Natal</strong>
-              Operating across South Africa
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">📧</div>
-            <div class="contact-detail-text">
-              <strong>Email Us</strong>
-              info@agrospatial.co.za
-            </div>
-          </div>
-          <div class="contact-detail">
-            <div class="contact-detail-icon">💼</div>
-            <div class="contact-detail-text">
-              <strong>Partnership Enquiries</strong>
-              NGOs · Government · Corporates · Commodity Bodies
-            </div>
+    <div class="contact-inner">
+      <div>
+        <span class="overline">Get In Touch</span>
+        <h2>Ready to <em>Work Together?</em></h2>
+        <div class="section-rule"></div>
+        <p>Whether you represent an NGO, commodity body, government department, or corporate looking to support smallholder farmers at scale, we welcome the opportunity to discuss how our integrated approach can serve your programme objectives.</p>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div>
+            <div class="contact-detail-label">Location</div>
+            <div class="contact-detail-value">KwaZulu-Natal, South Africa<br/>Operating nationally</div>
           </div>
         </div>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group">
-              <label>First Name</label>
-              <input type="text" placeholder="Sifiso" required />
-            </div>
-            <div class="form-group">
-              <label>Last Name</label>
-              <input type="text" placeholder="Dlamini" required />
-            </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">✉️</div>
+          <div>
+            <div class="contact-detail-label">Email</div>
+            <div class="contact-detail-value">finsorca@gmail.com</div>
           </div>
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="you@organisation.co.za" required />
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">💼</div>
+          <div>
+            <div class="contact-detail-label">Partnership Enquiries</div>
+            <div class="contact-detail-value">NGOs &nbsp;&middot;&nbsp; Government &nbsp;&middot;&nbsp; Corporates &nbsp;&middot;&nbsp; Commodity Bodies</div>
           </div>
-          <div class="form-group">
-            <label>Organisation Type</label>
-            <select required>
-              <option value="" disabled selected>Select your organisation type</option>
-              <option>NGO / Development Organisation</option>
-              <option>Government Department</option>
-              <option>Corporate / Agribusiness</option>
-              <option>Commodity Organisation</option>
-              <option>Farmer / Cooperative</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea placeholder="Tell us about your programme or interest in partnering with us..."></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="border: none; cursor: pointer; font-size: 0.88rem; width: 100%; text-align: center; padding: 1rem 2rem;">
-            Send Message
-          </button>
-          <p id="form-success" style="display:none; color: var(--gold-light); font-size: 0.85rem; text-align: center; margin-top: 0.5rem;">
-            ✓ Message received — we'll be in touch shortly.
-          </p>
-        </form>
+        </div>
       </div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="you@organisation.co.za" required />
+        </div>
+        <div class="form-group">
+          <label>Organisation</label>
+          <input type="text" placeholder="Your organisation name" />
+        </div>
+        <div class="form-group">
+          <label>Organisation Type</label>
+          <select required>
+            <option value="" disabled selected>Select your organisation type</option>
+            <option>NGO / Development Organisation</option>
+            <option>Government Department</option>
+            <option>Corporate / Agribusiness</option>
+            <option>Commodity Organisation</option>
+            <option>Farmer / Cooperative</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about your programme or your interest in working with Green Cultivars Solutions..."></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width:100%;text-align:center;padding:1.1rem 2rem;font-size:0.65rem;">Send Message</button>
+        <p id="form-success">Message received. We will be in touch with you shortly.</p>
+      </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-brand">Agro<span>Spatial</span> Consulting</div>
-    <div class="footer-copy">© 2025 AgroSpatial Consulting. KwaZulu-Natal, South Africa.</div>
-    <div class="footer-links">
-      <a href="#problem">The Gap</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <div class="footer-brand">Green <span>Cultivars</span> Solutions</div>
+    <div class="footer-copy">&copy; 2025 Green Cultivars Solutions. KwaZulu-Natal, South Africa. All rights reserved.</div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </footer>
 
   <script>
     function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('open');
+      document.getElementById('navLinks').classList.toggle('open');
     }
-
-    // Close menu on link click
     document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
-        document.getElementById('navLinks').classList.remove('open');
-      });
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
     });
 
-    // Scroll-reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
-      });
-    }, { threshold: 0.12 });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    document.querySelectorAll('.service-card, .prob-card, .client-card, .team-card, .step, .metric-box').forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(20px)';
-      el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
-      observer.observe(el);
-    });
-
-    // Contact form
     function handleSubmit(e) {
       e.preventDefault();
       document.getElementById('form-success').style.display = 'block';
       e.target.reset();
     }
 
-    // Shrink nav on scroll
     window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      if (window.scrollY > 60) {
-        nav.style.padding = '0.75rem 4rem';
-      } else {
-        nav.style.padding = '1.2rem 4rem';
-      }
+      const inner = document.getElementById('navInner');
+      inner.style.paddingTop    = window.scrollY > 80 ? '0.7rem' : '1.1rem';
+      inner.style.paddingBottom = window.scrollY > 80 ? '0.7rem' : '1.1rem';
     });
   </script>
 
